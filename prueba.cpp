@@ -9,30 +9,40 @@ using namespace std;
 // -----------------------------------------------------------------------------
 void swap_por_puntero(int* a, int* b) {
     // TODO: implementar intercambio clásico usando *a, *b y una variable temporal.
-    int tmp = *a;
-    *a = *b;
-    *b = tmp;
-    
-    
-    
+    int aux;
+    aux = *b;
+    *b = *a;
+    *a = aux; 
 }
 
 void swap_si_mayor(int* p, int* q) {
     // TODO: intercambiar solo si *p > *q.
     if (*p > *q){
-        int* aux = new int;
-        *aux = *q;
+        int aux = *q;
         *q = *p;
-        *p = *aux;
+        *p = aux;
         };
  }
 
 void swap_si_menor(int* p, int* q) {
     // TODO (opcional): intercambiar solo si *p < *q.
+    if(*p < *q){
+        int aux = *p;
+        *p = *q;
+        *q = aux;
 }
+
+    }
 
 void set_si_positivo(int* p, int valor) {
     // TODO (opcional): escribir 'valor' en *p solo si valor > 0.
+    if(valor > 0){
+        *p = valor;
+        cout << "El valor es " << *p <<endl;
+    }
+    else
+        cout << "El valor no es positivo" << endl; 
+
 }
 
 // -----------------------------------------------------------------------------
@@ -40,12 +50,21 @@ void set_si_positivo(int* p, int valor) {
 // -----------------------------------------------------------------------------
 int suma(const int* arr, int n) {
     // TODO: recorrer arr[0..n-1] y acumular.
-    return 0;
+    int sum = 0;
+    for(int i = 0; i < n; i++){
+        sum+= *(arr + i);
+    }
+    return sum;
 }
 
 double promedio(const int* arr, int n) {
     // TODO: usar suma(...) y devolver (double)suma/n si n>0; si n==0 retornar 0.0.
-    return 0.0;
+        int sum = suma(arr, n);
+        if(n>0) {
+            double prom = sum/n;
+            return prom;}
+        else
+            return 0.0;
 }
 
 int maximo(const int* arr, int n) {
@@ -83,6 +102,8 @@ int main() {
     // -------------------------------------------------------------------------
     // (B) Proyecto CasaDomotica++ - Parte 1: Sensor de temperatura por puntero
     // -------------------------------------------------------------------------
+
+
     // El "sensor" será una variable 'temperaturaActual' y un puntero a ella.
     // TODO:
     // 1) Declarar: int temperaturaActual = 22;
@@ -95,35 +116,94 @@ int main() {
     int* ptrTemp = &temperaturaActual;
     cout << "Temperatura actual es " <<temperaturaActual << " y su direccion es " 
     << &temperaturaActual << "." << endl << "El puntero vale " << *ptrTemp << 
-    " y su direccion es "  << &ptrTemp <<endl;
+    " y su direccion es "  << ptrTemp <<endl;
     
     *ptrTemp = 27;
     cout << "Ahora la temperatura actual es " <<temperaturaActual << endl;
     
+
+
+
     int temp;
     cin >> temp;
     *ptrTemp = temp;
-     cout << "Ahora la temperatura actual es " <<temperaturaActual << endl;
-     
-
-    // -------------------------------------------------------------------------
-    // (C) Paso por puntero: pruebas de swap y variantes
-    // -------------------------------------------------------------------------
-    // TODO:
-    // 1) Implementar swap_por_puntero arriba y probar con:
-    //    int x=5, y=9;  swap_por_puntero(&x,&y);
-        int x=5, y=9;
-        swap_por_puntero(&x,&y);
-        cout << "x = " <<  
+    cout << "Ahora la temperatura actual es " <<temperaturaActual << endl;
+   
+    int x=5, y=9; 
+    cout << "x es: " << x << " e y es: " << y << endl;    
+    swap_por_puntero (&x,&y);
+    cout << "El puntero ha swapeado  " << x << " / " << y <<endl; 
+    
     
     // 2) Implementar swap_si_mayor y probar casos (p.ej., 10 y 3, luego 2 y 7).
        // swap_si_mayor(10,3);
-    
-    // 3) (Opcional) swap_si_menor y set_si_positivo.
+    int aa,be,ce,d,e;
+    aa = 10;
+    be = 5;
+    ce = 6;
+    d = 11;
+    e = 0;
+    cout <<"swap si es mayor:"<< endl;
+    cout << "a: " << aa<< " b: " << be << " c: " << ce << " d: " << d << " e: " << e << endl;
+    cout<<endl; 
+    swap_si_mayor(&aa,&be);
+    cout << "a y b" <<endl;
+    cout << "a: " << aa<< " b: " << be << " c: " << ce << " d: " << d << " e: " << e << endl; 
+    cout<<endl;
+    swap_si_mayor(&be,&ce);
+    cout << "b y c" <<endl;
+    cout << "a: " << aa<< " b: " << be << " c: " << ce << " d: " << d << " e: " << e << endl;
+    cout<<endl;
+    swap_si_mayor(&d,&e);
+    cout << "d y e" <<endl;
+    cout << "a: " << aa<< " b: " << be << " c: " << ce << " d: " << d << " e: " << e << endl;
+    cout<<endl;
+    swap_si_mayor(&aa,&e);
+    cout << "a y e" <<endl;
+    cout << "a: " << aa<< " b: " << be << " c: " << ce << " d: " << d << " e: " << e << endl;
+    cout<<endl;
+    swap_si_mayor(&ce,&d);
+    cout << "c y d" <<endl;
+    cout << "a: " << aa<< " b: " << be << " c: " << ce << " d: " << d << " e: " << e << endl;
+    cout<<endl;
+    cout<<endl;
 
-    // -------------------------------------------------------------------------
+    cout <<"swap si es menor:"<< endl;
+    cout << "a: " << aa<< " b: " << be << " c: " << ce << " d: " << d << " e: " << e << endl;
+    cout<<endl; 
+    swap_si_menor(&aa,&be);
+    cout << "a y b" <<endl;
+    cout << "a: " << aa<< " b: " << be << " c: " << ce << " d: " << d << " e: " << e << endl; 
+    cout<<endl;
+    swap_si_menor(&be,&ce);
+    cout << "b y c" <<endl;
+    cout << "a: " << aa<< " b: " << be << " c: " << ce << " d: " << d << " e: " << e << endl;
+    cout<<endl;
+    swap_si_menor(&ce,&d);
+    cout << "c y d" <<endl;
+    cout << "a: " << aa<< " b: " << be << " c: " << ce << " d: " << d << " e: " << e << endl;
+    cout<<endl;
+ // 3) (Opcional) swap_si_menor y set_si_positivo.
+    int Edad;
+    cout << "Escriba la edad: ";
+    cin >> Edad;
+    int *pEdad = new int;   
+    set_si_positivo(pEdad, Edad);
+    
+
+    // -------------------------------------------------------------------------   
     // (D) Arreglos estáticos: direcciones y funciones con punteros
     // -------------------------------------------------------------------------
+    
+    // 1) Declarar un arreglo fijo: int v[5] = {10,20,30,40,50};
+
+    int v[5] = {10,20,30,40,50};
+    for(int i = 0; i < 5; i++ ){
+        cout << "valor en " << i << " : " << v[i] << endl;
+        cout << "dirección en " << i << " : " << (void*)(&v[i]) << endl;
+        cout << endl;
+    }
+
     // 1) Declarar un arreglo fijo: int v[5] = {10,20,30,40,50};
     // 2) Imprimir v[i] y &v[i] en un for (i=0..4) para observar contigüidad.
     //    Sugerencia de línea para dirección:
@@ -131,5 +211,8 @@ int main() {
     // 3) Llamar a suma(v,5), promedio(v,5) y (opcional) maximo(v,5) e imprimir.
     //    // TODO: completar implementaciones arriba.
     cout << "Fin Semana 1. Próximo paso: memoria dinámica y archivos (Semana 2).";
+    cout << "Presiona ENTER para salir...";
+    cin.ignore();
+    cin.get();
     return 0;
 }
