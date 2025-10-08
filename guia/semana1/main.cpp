@@ -7,7 +7,7 @@ using namespace std;
 // (C) Paso por puntero: swap y variaciones
 // Implementar aquí para usarlas más abajo.
 // -----------------------------------------------------------------------------
-void swap_por_puntero(int* a, int* b) {
+/*void swap_por_puntero(int* a, int* b) {
     // TODO: implementar intercambio clásico usando *a, *b y una variable temporal.
     // int tmp = *a;
     // *a = *b;
@@ -42,10 +42,11 @@ double promedio(const int* arr, int n) {
 int maximo(const int* arr, int n) {
     // TODO (opcional): devolver el mayor valor del arreglo (validar n>0).
     return 0;
-}
+}*/
 
 int main() {
-    cout << fixed << setprecision(2);
+ cout<<"Hola mundo";
+    /* cout << fixed << setprecision(2);
 
     // -------------------------------------------------------------------------
     // (A) Variables y direcciones (calentamiento)
@@ -89,5 +90,6 @@ int main() {
     // 3) Llamar a suma(v,5), promedio(v,5) y (opcional) maximo(v,5) e imprimir.
     //    // TODO: completar implementaciones arriba.
     cout << "\nFin Semana 1. Próximo paso: memoria dinámica y archivos (Semana 2).\n";
-    return 0;
+    */
+   return 0;
 }

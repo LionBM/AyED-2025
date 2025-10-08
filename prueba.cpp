@@ -61,15 +61,26 @@ double promedio(const int* arr, int n) {
     // TODO: usar suma(...) y devolver (double)suma/n si n>0; si n==0 retornar 0.0.
         int sum = suma(arr, n);
         if(n>0) {
-            double prom = sum/n;
+            double prom = (double)sum/n;
             return prom;}
-        else
-            return 0.0;
+        else { return 0.0; }
+            
 }
 
 int maximo(const int* arr, int n) {
-    // TODO (opcional): devolver el mayor valor del arreglo (validar n>0).
-    return 0;
+     //TODO (opcional): devolver el mayor valor del arreglo (validar n>0).
+    int mayor = *arr;
+     if(n>0){
+        for(int i=0; i<n-1; i++){
+            if(mayor<*(arr + i + 1)){
+                mayor = *(arr + i + 1);
+            }
+        }
+        return mayor;
+    }
+    else cout << "N es menor a 0, no valido"<<endl;
+  
+     return 0;
 }
 
 int main() {
@@ -189,6 +200,7 @@ int main() {
     cin >> Edad;
     int *pEdad = new int;   
     set_si_positivo(pEdad, Edad);
+    delete pEdad;
     
 
     // -------------------------------------------------------------------------   
@@ -202,7 +214,7 @@ int main() {
         cout << "valor en " << i << " : " << v[i] << endl;
         cout << "dirección en " << i << " : " << (void*)(&v[i]) << endl;
         cout << endl;
-    }
+    };
 
     // 1) Declarar un arreglo fijo: int v[5] = {10,20,30,40,50};
     // 2) Imprimir v[i] y &v[i] en un for (i=0..4) para observar contigüidad.
@@ -210,6 +222,13 @@ int main() {
     //    cout << (void*)(&v[i]) << "\n";
     // 3) Llamar a suma(v,5), promedio(v,5) y (opcional) maximo(v,5) e imprimir.
     //    // TODO: completar implementaciones arriba.
+
+    cout << suma(v,5)<<endl;
+    cout << fixed << promedio(v,5)<<endl;
+    cout << maximo(v,5)<<endl;
+
+
+
     cout << "Fin Semana 1. Próximo paso: memoria dinámica y archivos (Semana 2).";
     cout << "Presiona ENTER para salir...";
     cin.ignore();
