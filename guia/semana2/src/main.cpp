@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "readings.h"
+#include "../include/readings.h"
 
 using namespace std;
 
